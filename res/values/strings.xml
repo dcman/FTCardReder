@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FT Card Reder</string>
+    <string name="body_text">Card info goes here</string>
+	<string name="button">Click Me</string>
+</resources>
