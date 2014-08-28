@@ -12,7 +12,9 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="@string/body_text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+        android:hint="Card info goes here"
+        />
 
     <Button
         android:id="@+id/button1"
