@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				AssetManager assetManager = getAssets();
 				TextView text = (TextView) findViewById(R.id.textView1);
-				//text.setText("Text Changed");
+				
 			      InputStream input;
 
 
