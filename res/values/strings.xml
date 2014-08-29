@@ -3,5 +3,5 @@
 
     <string name="app_name">FT Card Reder</string>
     <string name="body_text"></string>
-	<string name="button">Click Me</string>
+	<string name="text_hint">Card info goes here</string>
 </resources>

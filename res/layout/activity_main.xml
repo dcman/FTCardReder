@@ -13,21 +13,10 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:hint="Card info goes here"
+            android:hint="@string/text_hint"
             android:text="@string/body_text"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textIsSelectable="true"
              />
-
-
-    <Button
-        android:id="@+id/button1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="changeText"
-        android:text="@string/button" />
 
 </RelativeLayout>
