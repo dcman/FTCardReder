@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
 		dumpIntent(intent, text);
 
 
+		
 
 
 	}
@@ -73,13 +74,20 @@ public class MainActivity extends Activity {
 			IsoDep deep = IsoDep.get(tag);
 			try {
 				deep.connect();
-				String str = new String(deep.getHistoricalBytes(), "Base64");
+				view.append("Connected \n");
+				printHisotry(deep, view);
 				deep.close();
-				view.append(str);
 			} catch (Exception e) {
-				// TODO: handle exception
+				
 			}
 	 }
+	private static void printHisotry(IsoDep deep, TextView view) {
+		String str = "Historical bytes: ";
+		for (byte b: deep.getHistoricalBytes()){
+			str += String.format("0x%x%n",b);
+			}
+		view.append(str);
+	}
 	 
 
 }
