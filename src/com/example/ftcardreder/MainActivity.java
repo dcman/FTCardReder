@@ -55,14 +55,14 @@ public class MainActivity extends Activity {
 		    if (bundle != null) {
 		        Set<String> keys = bundle.keySet();
 		        Iterator<String> it = keys.iterator();
-		        Log.e(LOG_TAG,"Dumping Intent start");
+		        //Log.e(LOG_TAG,"Dumping Intent start");
 		        while (it.hasNext()) {
 		            String key = it.next();
 		            if(bundle.get(key).getClass().toString().equals("class android.nfc.Tag"))
 		            	tagwork((Tag) bundle.get(key), text);
-		            Log.e(LOG_TAG,"[" + key + "=" + bundle.get(key)+"]");
+		         //   Log.e(LOG_TAG,"[" + key + "=" + bundle.get(key)+"]");
 		        }
-		        Log.e(LOG_TAG,"Dumping Intent end");
+		       // Log.e(LOG_TAG,"Dumping Intent end");
 		    }
 		}
 	 public static void tagwork(Tag tag, TextView view){
@@ -76,15 +76,37 @@ public class MainActivity extends Activity {
 				deep.connect();
 				view.append("Connected \n");
 				printHisotry(deep, view);
+				printMaxTransceiveLength(deep, view);
+				printId(deep, view);
+				printTimeOut(deep, view);
 				deep.close();
 			} catch (Exception e) {
 				
 			}
 	 }
+	private static void printTimeOut(IsoDep deep, TextView view) {
+		String str = "Time out: ";
+		str += String.format("%S MS\n", deep.getTimeout());
+		view.append(str);
+	}
+	private static void printId(IsoDep deep, TextView view) {
+		Tag tag = deep.getTag();
+		String str = "Tag ID: ";
+		for (byte b: tag.getId()){
+			str += String.format("%02X:",b);
+			}
+		view.append(str.substring(0,str.length()-1)+"\n");
+		
+	}
+	private static void printMaxTransceiveLength(IsoDep deep, TextView text) {
+		String str = "Max transceive length: ";
+		str += String.format("%S", deep.getMaxTransceiveLength());
+		text.append(str+ " bits\n");
+	}
 	private static void printHisotry(IsoDep deep, TextView view) {
 		String str = "Historical bytes: ";
 		for (byte b: deep.getHistoricalBytes()){
-			str += String.format("0x%x%n",b);
+			str += String.format("0x%X%n",b);
 			}
 		view.append(str);
 	}
